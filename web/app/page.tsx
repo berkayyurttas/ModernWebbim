@@ -51,31 +51,29 @@ export default async function Home() {
             {data.ozgecmis}
           </p>
 
-          {/* BUTONLAR BURADA - DÜZELTİLDİ 🛠️ */}
-          <div className="flex flex-wrap gap-6 justify-center md:justify-start mt-8">
+          {/* BUTONLAR (5 ADET) */}
+          <div className="flex flex-wrap gap-4 justify-center md:justify-start mt-8">
             
-            {/* 1. İLETİŞİM (BEYAZ) */}
-            <Link 
-              href="/iletisim" 
-              className="px-8 py-3 bg-white text-black font-bold rounded-full hover:bg-gray-300 hover:scale-105 transition-all shadow-lg shadow-white/10"
-            >
-              İletişime Geç
+            {/* 1. İLETİŞİM */}
+            <Link href="/iletisim" className="w-fit px-6 py-3 rounded-full bg-gray-900 border border-gray-700 text-white font-medium hover:bg-white hover:text-black hover:scale-105 transition-all flex items-center gap-2 whitespace-nowrap">
+              <span>✉️</span> İletişime Geç
             </Link>
 
-            {/* 2. PROJELERİM (BEYAZ) */}
-            <Link 
-              href="/projelerim" 
-              className="px-8 py-3 bg-white text-black font-bold rounded-full hover:bg-gray-300 hover:scale-105 transition-all shadow-lg shadow-white/10"
-            >
-              Projelerim
+            {/* 2. PROJELERİM */}
+           <Link href="/projelerim" className="w-fit px-6 py-3 rounded-full bg-gray-900 border border-gray-700 text-white font-medium hover:bg-white hover:text-black hover:scale-105 transition-all flex items-center gap-2 whitespace-nowrap">
+              <span>💻</span> Projelerim
             </Link>
-
-            {/* 3. YETENEKLERİM (BEYAZ) */}
-            <Link 
-              href="/yetenekler" 
-              className="px-8 py-3 bg-white text-black font-bold rounded-full hover:bg-gray-300 hover:scale-105 transition-all shadow-lg shadow-white/10 flex items-center gap-2"
-            >
-              Yeteneklerim 
+            {/* 3. YETENEKLERİM */}
+            <Link href="/yetenekler" className="w-fit px-6 py-3 rounded-full bg-gray-900 border border-gray-700 text-white font-medium hover:bg-white hover:text-black hover:scale-105 transition-all flex items-center gap-2 whitespace-nowrap">
+              <span>📊</span> Yeteneklerim
+            </Link>
+            {/* 4. SERTİFİKALARIM */}
+            <Link href="/sertifikalar" className="w-fit px-6 py-3 rounded-full bg-gray-900 border border-gray-700 text-white font-medium hover:bg-white hover:text-black hover:scale-105 transition-all flex items-center gap-2 whitespace-nowrap">
+              <span>📜</span> Sertifikalarım
+            </Link>
+            {/* 5. DENEYİMLERİM */}
+            <Link href="/deneyim" className="w-fit px-6 py-3 rounded-full bg-gray-900 border border-gray-700 text-white font-medium hover:bg-white hover:text-black hover:scale-105 transition-all flex items-center gap-2 whitespace-nowrap">
+              <span>💼</span> Deneyimlerim
             </Link>
 
           </div>
