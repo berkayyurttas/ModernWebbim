@@ -3,23 +3,19 @@ import Image from "next/image";
 import Link from "next/link";
 import imageUrlBuilder from '@sanity/image-url';
 
-// 1. Sanity Bağlantısı
 const client = createClient({
-  projectId: "syrsnfhh", // Senin Proje ID'n
+  projectId: "syrsnfhh",
   dataset: "production",
   apiVersion: "2024-01-01",
   useCdn: false,
 });
 
-// 2. Resim URL oluşturucu
 const builder = imageUrlBuilder(client);
-
 function urlFor(source: any) {
   return source ? builder.image(source).url() : "";
 }
 
 export default async function Home() {
-  // 3. Verileri Çek
   const data = await client.fetch(`
     *[_type == "hakkimda"][0]{
       adSoyad,
@@ -29,16 +25,8 @@ export default async function Home() {
     }
   `, {}, { cache: 'no-store' });
 
-  // Eğer panelden veri girilmemişse uyarı ver
-  if (!data) {
-    return (
-      <div className="flex items-center justify-center h-screen bg-black text-white">
-        <p>Lütfen Sanity Paneline (localhost:3333) gidip 'Hakkımda Bilgileri'ni doldur ve Publish et.</p>
-      </div>
-    );
-  }
+  if (!data) return <div className="p-20 text-white text-center">Veri yok...</div>;
 
-  // Resim linkini oluştur
   const profilePicUrl = data.profilResmi ? urlFor(data.profilResmi) : null;
 
   return (
@@ -51,7 +39,6 @@ export default async function Home() {
             Merhaba, Ben
           </h2>
           
-          {/* İsim: Gradient Efektli */}
           <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text">
             {data.adSoyad}
           </h1>
@@ -64,23 +51,31 @@ export default async function Home() {
             {data.ozgecmis}
           </p>
 
-          {/* BUTONLAR BURADA - İkisi de BEYAZ yapıldı */}
-          <div className="flex gap-4 justify-center md:justify-start mt-4">
+          {/* BUTONLAR BURADA - DÜZELTİLDİ 🛠️ */}
+          <div className="flex flex-wrap gap-6 justify-center md:justify-start mt-8">
             
-            {/* İletişim Butonu (Zaten Beyazdı) */}
+            {/* 1. İLETİŞİM (BEYAZ) */}
             <Link 
               href="/iletisim" 
-              className="px-8 py-3 bg-white text-black font-bold rounded-full hover:bg-gray-200 transition-all text-center inline-block"
+              className="px-8 py-3 bg-white text-black font-bold rounded-full hover:bg-gray-300 hover:scale-105 transition-all shadow-lg shadow-white/10"
             >
               İletişime Geç
             </Link>
 
-            {/* Projeler Butonu (ARTIK BU DA BEYAZ) */}
+            {/* 2. PROJELERİM (BEYAZ) */}
             <Link 
               href="/projelerim" 
-              className="px-8 py-3 bg-white text-black font-bold rounded-full hover:bg-gray-200 transition-all text-center inline-block"
+              className="px-8 py-3 bg-white text-black font-bold rounded-full hover:bg-gray-300 hover:scale-105 transition-all shadow-lg shadow-white/10"
             >
-              Projelerimi Gör
+              Projelerim
+            </Link>
+
+            {/* 3. YETENEKLERİM (BEYAZ) */}
+            <Link 
+              href="/yetenekler" 
+              className="px-8 py-3 bg-white text-black font-bold rounded-full hover:bg-gray-300 hover:scale-105 transition-all shadow-lg shadow-white/10 flex items-center gap-2"
+            >
+              Yeteneklerim 
             </Link>
 
           </div>
@@ -92,7 +87,7 @@ export default async function Home() {
             {profilePicUrl && (
               <Image
                 src={profilePicUrl}
-                alt={data.adSoyad || "Profil Resmi"}
+                alt={data.adSoyad}
                 fill
                 className="object-cover"
                 priority

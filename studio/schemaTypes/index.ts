@@ -1,4 +1,5 @@
-import { hakkimda } from './hakkimda' // Senin önceki dosyanın adı hakkimda.ts ise böyle kalsın
+import { hakkimda } from './hakkimda' // (Adı seninkinde farklı olabilir, dokunma)
 import proje from './proje'
+import yetenek from './yetenek' // <-- BUNU EKLE
 
-export const schemaTypes = [hakkimda, proje]
+export const schemaTypes = [hakkimda, proje, yetenek] // <-- YETENEK'İ BURAYA EKLE
