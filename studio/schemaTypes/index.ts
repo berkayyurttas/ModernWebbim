@@ -1,7 +1,7 @@
 import { hakkimda } from './hakkimda'
-import proje from './proje'
 import yetenek from './yetenek'
 import sertifika from './sertifika'
-import deneyim from './deneyim' // <-- YENİ
+import deneyim from './deneyim'
+import proje from './proje' // <-- YENİ EKLENDİ
 
-export const schemaTypes = [hakkimda, proje, yetenek, sertifika, deneyim]
+export const schemaTypes = [hakkimda, yetenek, sertifika, deneyim, proje]

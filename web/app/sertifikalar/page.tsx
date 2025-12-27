@@ -26,9 +26,9 @@ export default async function SertifikalarPage() {
       
       {/* Geri Dön */}
       <div className="w-full max-w-6xl mb-12">
-        <Link href="/" className="text-gray-400 hover:text-white flex items-center gap-2 transition-colors">
-          ← Ana Sayfaya Dön
-        </Link>
+       <Link href="/" className="absolute top-10 left-10 flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+         ← Ana Sayfaya Dön
+      </Link>
       </div>
 
       <h1 className="text-4xl md:text-5xl font-bold mb-16 text-center bg-gradient-to-r from-yellow-400 to-orange-500 text-transparent bg-clip-text">
